@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>農委會臺灣農產嘉年華 中秋慶團圓抽獎活動</title>
+  <link rel="shortcut icon" href="./common/img/favicon.ico" />
+  <link rel="bookmark" href="./common/img/favicon.ico" />
+  <meta name="title" content="農委會臺灣農產嘉年華 中秋慶團圓抽獎活動" />
+  <meta name="Description"
+    content="農委會之臺灣農業國家隊舉辦臺灣農產嘉年華plus，中秋慶團圓活動開跑囉，活動期間加入LINE官方帳號並分享給LINE好友即可獲得抽獎次數，每次抽獎都有機會獲得各項好禮，天天分享、天天抽獎。花好柚圓人團圓，好獎佳節慶中秋!">
+  <meta name="Keywords" content="台灣農產嘉年華，農委會，農業委員會，中秋，月圓，柚子，團圓，賞月，柚，水果，佳節，中秋節。">
+
+  <meta property="fb:app_id" content="299669911637722" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="農委會臺灣農產嘉年華 中秋慶團圓抽獎活動">
+  <meta property="og:description"
+    content="農委會之臺灣農業國家隊舉辦臺灣農產嘉年華plus，中秋慶團圓活動開跑囉，活動期間加入LINE官方帳號並分享給LINE好友即可獲得抽獎次數，每次抽獎都有機會獲得各項好禮，天天分享、天天抽獎。花好柚圓人團圓，好獎佳節慶中秋!">
+  <meta property="og:url" content="https://farmersbuy.cas.org.tw/taiwanpomelo/">
+  <meta property="og:image" content="https://farmersbuy.cas.org.tw/taiwanpomelo/common/img/share-img-400.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:site_name" content="台灣農產嘉年華" />
+
+  <link rel="stylesheet" href="./common/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./common/css/index.css">
+</head>
+
+<body>
+  <!-- <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '299669911637722',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v10.0'
+        });
+        FB.AppEvents.logPageView();
+      };
+    </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0&appId=299669911637722&autoLogAppEvents=1" nonce="kAn1sJk7"></script> -->
+
+  <div class="wrap-content">
+    <div class="pineapple-content">
+      <h3 class="title-date"><span class="startTime"></span> - <span class="endTime"></span></h3>
+
+      <!-- 採買國產鳳梨，相挺臺灣農民 -->
+      <!-- <h2 class="wrap-title-slogan">
+                <ul class="title-slogan"><li></li><li></li><li></li><li></li><li style="margin-right: 5%;"></li><li></li><li></li><li></li><li></li><li></li></ul>
+                <ul class="title-slogan-text"><li>防</li><li>疫</li><li>挺</li><li>農</li><li style="margin-right: 5%;">民</li><li>宅</li><li>家</li><li>最</li><li>安</li><li>心</li></ul>
+            </h2> -->
+
+      <img class="mango-slogan" src="./common/img/slogan.png" alt="花好月圓人團圓">
+
+      <!-- main logo -->
+      <h1><img class="header-visual" src="./common/img/visual.png" alt="臺灣農產嘉年華"></h1>
+      <h2 class="subtitle">
+        <img class="farmer-left" src="./common/img/farmer1.png" alt="">
+        <img class="farmer-right" src="./common/img/farmer2.png" alt="">
+      </h2>
+      <div style="width: 100%; margin-top: 3%;">
+        <img style="width: 80%; max-width: 666px;" src="./common/img/sub-title-bg.png" alt="中秋慶團圓 抽獎活動開跑">
+      </div>
+      <!-- <h2 class="subtitle">
+                好運在我家 抽獎活動開跑
+                <img class="farmer-left" src="./common/img/farmer1.png" alt="">
+                <img class="farmer-right" src="./common/img/farmer2.png" alt="">
+            </h2> -->
+
+      <!-- Flag -->
+      <img class="flag" src="./common/img/flag.png" alt="">
+
+      <!-- 轉盤區塊 -->
+      <div class="wrap-wheel">
+        <!-- <div class="campaign-desc">
+          <div><img src="./common/img/file.png" alt=""></div>
+          <p>活動說明</p>
+        </div>
+        <div class="winner-record">
+          <div><img src="./common/img/gift.png" alt=""></div>
+          <p>抽獎記錄</p>
+        </div> -->
+        <div class="game">
+          <div id="click-game-area"></div>
+          <img id="cycle-shadow" src="./common/img/wheel-boarder.png" alt="">
+          <canvas id="target" width="500" height="500"></canvas>
+          <div id="pointer"><img src="./common/img/wheel-btn-arrow-up.png" alt=""></div>
+          <div id="pointer-shadow"></div>
+          <!-- <div>中獎：<span id="tips"></span></div> -->
+        </div>
+        <img id="gifts" src="./common/img/gifts.png">
+        <img style="display: none;" src="./common/img/1.png">
+        <img style="display: none;" src="./common/img/2.png">
+        <img style="display: none;" src="./common/img/3.png">
+        <img style="display: none;" src="./common/img/4.png">
+        <img style="display: none;" src="./common/img/5.png">
+        <img style="display: none;" src="./common/img/6.png">
+        <img style="display: none;" src="./common/img/7.png">
+        <img style="display: none;" src="./common/img/8.png">
+        <img style="display: none;" src="./common/img/9.png">
+        <img style="display: none;" src="./common/img/10.png">
+        <img style="display: none;" src="./common/img/11.png">
+        <img style="display: none;" src="./common/img/12.png">
+        <img style="display: none;" src="./common/img/13.png">
+        <img style="display: none;" src="./common/img/14.png">
+        <img style="display: none;" src="./common/img/15.png">
+        <img style="display: none;" src="./common/img/16.png">
+      </div>
+      <p class="table-count table-count-no-login" style=" text-decoration: underline;">點此參加活動</p>
+      <p class="table-count table-count-login" style="display: none;">您的抽獎機會還有 <span class="count"></span> 次</p>
+
+      <!-- 分享區塊 -->
+      <!-- <div class="wrap-share go-share">
+                <button>
+                    <img class="line-logo" src="./common/img/line.png" alt="">
+                    <span>活動分享</span>
+                    <img class="arrow" src="./common/img/arrow.png" alt="">
+                </button>
+                <h3>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</h3>
+            </div> -->
+
+      <!-- 說明區塊 -->
+      <div class="wrap-desc">
+        <img src="./common/img/hangup.png" alt="">
+        <div class="board">
+          <ul>
+            <li>
+              <p><span class="index">1.</span>於活動期間遊玩中秋慶團圓轉盤，即有機會獲得各項大獎。</p>
+            </li>
+            <li>
+              <p><span class="index">2.</span>請先加入好友「臺灣農產嘉年華」LINE@，並登入LINE帳號，即可進行轉盤抽獎。</p>
+            </li>
+            <li>
+              <p><span class="index">3.</span>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 主辦單位 -->
+      <!-- <div class="wrap-advisor">
+        <div class="unit">
+          <h4 class="advisor-text">指導單位</h4>
+          <img id="advisor" src="./common/img/logo_coa.png" alt="">
+        </div>
+      </div>
+      <div class="wrap-organizer">
+        <div class="unit">
+          <h4 class="organizer-text">主辦單位</h4>
+          <img id="organizer" src="./common/img/logo_cas.png" alt="">
+        </div>
+      </div> -->
+      <!-- Footer -->
+      <!-- <div id="footer">
+        <img id="fruit" src="./common/img/fruit.png" alt="">
+        <img id="ground" src="./common/img/footer-bg.png" alt="">
+      </div> -->
+    </div>
+  </div>
+
+
+  <!-- Popup 活動說明 -->
+  <div class="modal fade popup" id="popup-description" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動說明</h3>
+          <h2>中秋慶團圓 抽獎活動開跑</h2>
+          <ul class="board">
+            <li>
+              <p><span class="index">1.</span>活動期間為<span class="startTime"></span>至<span class="endTime"></span>。</p>
+            </li>
+            <li>
+              <p><span class="index">2.</span>於活動期間遊玩中秋慶團圓轉盤，即有機會獲得各項大獎。</p>
+            </li>
+            <li>
+              <p><span class="index">3.</span>請先加入好友「臺灣農產嘉年華」LINE@，並登入LINE帳號，即可進行轉盤抽獎</p>
+            </li>
+            <li>
+              <p><span class="index">4.</span>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</p>
+            </li>
+            <li>
+              <p><span class="index">5.</span>本活動需透過活動頁面上之「活動分享」給好友或群組方符合活動資格，若透過直接複製連結或其他方式分享，恕無法獲得抽獎機會。</p>
+            </li>
+            <li>
+              <p><span class="index">6.</span>所有活動獎品圖片僅供參考，獎品內容以實品為準。</p>
+            </li>
+            <li>
+              <p><span class="index">7.</span>主辦單位保有修改、變更、暫停、中止、提前終止或取消本活動或獎品之權利，如有未盡事宜，悉依主辦單位相關規定或解釋辦理。</p>
+            </li>
+            <li>
+              <p><span class="index">8.</span>主辦單位對於所有活動內容擁有最終解釋、決定權。</p>
+            </li>
+            <li>
+              <p><span class="index">9.</span>請確認中獎人資訊填寫正確，若資料錯誤將無法變更，恕不負責。</p>
+            </li>
+            <li>
+              <p><span class="index">10.</span> 所有中獎獎品，統一於活動結束後，自隔日起開始陸續發送，將由官方以快遞方式寄送。</p>
+            </li>
+          </ul>
+          <ul class="desc-prizes"></ul>
+        </div>
+        <div class="pop-bottons">
+          <div data-dismiss="modal" aria-label="Close">關閉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup 抽獎記錄 -->
+  <div class="modal fade popup" id="popup-record" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">抽獎記錄</h3>
+          <div class="wrap-record-list">
+            <ul class="record-list">
+              <li><span>抽獎時間</span><span>抽獎結果</span><span>領獎人</span></li>
+            </ul>
+            <div style="display: none;" class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="pop-bottons">
+          <div data-dismiss="modal" aria-label="Close">關閉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Popup 抽獎結果 沒中 -->
+  <div class="modal fade popup" id="pop-tips" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">抽獎結果</h3>
+          <h2>好運差一步！</h2>
+          <img class="miss" src="./common/img/miss.png" alt="">
+          <div class="wrap-count-board">
+            <p
+              style="position: relative;left: auto;transform: translate(0);font-size: 1.4rem;color: #fff;font-weight: 600;width: 65%;background-color: #4CAF52;margin: 0 auto;padding: 0.6rem 0;">
+              目前剩餘抽獎機會 <span class="count" style="color: #fff;">1</span> 次</p>
+            <!-- <img src="./common/img/chance-bg.png" alt=""> -->
+          </div>
+          <div class="limit-tips">本日可獲得抽獎機會已達上限</div>
+        </div>
+        <div class="pop-bottons pop-bottons-two">
+          <div class="limit-tips-text" data-dismiss="modal" aria-label="Close">繼續抽獎</div>
+          <div class="go-share">分享</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Popup 抽獎結果 -->
+  <div class="modal fade popup" id="pop-winner" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">抽獎結果</h3>
+          <h2>恭喜中獎！</h2>
+          <h4 class="unFinishprizeTime"
+            style="display: none; width: 95%; margin: 0 auto 0.8rem; padding: 0.6rem 0; font-size: 1.1rem; background-color: #FAFAF0; color: #40210F; font-weight: 600;">
+            中獎時間：<span></span>&nbsp;&nbsp;&nbsp;領獎資訊：未填寫</h4>
+          <img id="winner-pic" src="" alt="">
+          <div class="wrap-count-board">
+            <p class="tips"></p>
+            <img src="./common/img/banner.png" alt="">
+          </div>
+          <!-- <img class="winner-doll-left" src="./common/img/win1.png" alt="">
+                    <img class="winner-doll-right" src="./common/img/win2.png" alt=""> -->
+        </div>
+        <div class="pop-bottons">
+          <div class="submit-data">前往領獎</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Popup 折價券 -->
+  <div class="modal fade popup" id="pop-number" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">抽獎結果</h3>
+          <h2>恭喜中獎！</h2>
+          <h4 class="unFinishprizeTime"
+            style="display: none; width: 95%; margin: 0 auto 0.8rem; padding: 0.6rem 0; font-size: 1.1rem; background-color: #FAFAF0; color: #40210F; font-weight: 600;">
+            中獎時間：<span></span>&nbsp;&nbsp;&nbsp;領獎資訊：未填寫</h4>
+          <img class="winner-pic" src="./common/img/12.png" alt="">
+          <div class="wrap-count-board">
+            <p class="tips"></p>
+            <img src="./common/img/banner.png" alt="">
+          </div>
+          <!-- <img class="winner-doll-left" src="./common/img/win1.png" alt="">
+                    <img class="winner-doll-right" src="./common/img/win2.png" alt=""> -->
+        </div>
+        <div class="pop-bottons">
+          <div class="submit-number-data">前往折扣專區</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 分享完成(未使用) -->
+  <div class="modal fade popup" id="pop-finish-share" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">分享完成</h3>
+          <img class="miss" src="./common/img/check.png" alt="">
+          <div class="wrap-count-board">
+            <p>目前剩餘抽獎機會 <span class="count">1</span> 次</p>
+            <img src="./common/img/chance-bg.png" alt="">
+          </div>
+        </div>
+        <div class="pop-bottons pop-bottons-two">
+          <div data-dismiss="modal" aria-label="Close">返回首頁</div>
+          <div class="go-share">分享</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 填寫領獎資訊 -->
+  <div class="modal fade popup" id="pop-address" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">填寫領獎資訊</h3>
+          <h2 class="left">恭喜獲得 <span class="tips"></span></h2>
+          <input id="name" type="text" class="form-control" placeholder="真實姓名">
+          <input id="phoneNumber" type="tel" class="form-control" placeholder="聯絡電話">
+          <input id="email" type="email" class="form-control" placeholder="E-mail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <h2 style="text-align: left;">郵寄地址</h2>
+          <div class="wrap-address-two">
+            <select id="counties" class="form-select">
+              <option selected>縣市</option>
+              <option value="台北市">台北市</option>
+              <option value="基隆市">基隆市</option>
+              <option value="新北市">新北市</option>
+              <option value="宜蘭縣">宜蘭縣</option>
+              <option value="桃園市">桃園市</option>
+              <option value="新竹市">新竹市</option>
+              <option value="新竹縣">新竹縣</option>
+              <option value="苗栗縣">苗栗縣</option>
+              <option value="台中市">台中市</option>
+              <option value="彰化縣">彰化縣</option>
+              <option value="南投縣">南投縣</option>
+              <option value="嘉義市">嘉義市</option>
+              <option value="嘉義縣">嘉義縣</option>
+              <option value="雲林縣">雲林縣</option>
+              <option value="台南市">台南市</option>
+              <option value="高雄市">高雄市</option>
+              <option value="澎湖縣">澎湖縣</option>
+              <option value="金門縣">金門縣</option>
+              <option value="屏東縣">屏東縣</option>
+              <option value="台東縣">台東縣</option>
+              <option value="花蓮縣">花蓮縣</option>
+              <option value="連江縣">連江縣</option>
+            </select>
+            <select id="cities" class="form-select">
+              <option selected>地區</option>
+            </select>
+          </div>
+          <input id="address" type="text" class="form-control" placeholder="地址">
+          <div class="pop-address-tips" style="margin-top: 1rem;"></div>
+        </div>
+        <div class="pop-bottons">
+          <div class="submit-info">送出資訊</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 填寫完成 -->
+  <div class="modal fade popup" id="pop-finish" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">填寫領獎資訊</h3>
+          <h2>領獎資料已送出！</h2>
+          <img src="./common/img/send.png" alt="">
+          <h2 style="margin-bottom: 1rem;">分享好友參加活動，可額外獲得 1 次抽獎機會！</h2>
+          <div class="limit-tips">本日可獲得抽獎機會已達上限</div>
+        </div>
+        <div class="pop-bottons pop-bottons-two">
+          <div class="limit-tips-text" data-dismiss="modal" aria-label="Close">返回首頁</div>
+          <div class="go-share">分享</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動提示 沒有抽獎次數 -->
+  <div class="modal fade popup" id="pop-zero" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動提示</h3>
+          <h2>目前沒有可用抽獎次數。</h2>
+          <img src="./common/img/joystick.png" alt="">
+          <h2 style="margin-bottom: 1rem;">分享好友參加活動，可額外獲得 1 次抽獎機會！</h2>
+          <div class="limit-tips">本日可獲得抽獎機會已達上限</div>
+        </div>
+        <div class="pop-bottons pop-bottons-two">
+          <div class="close-modal-do-my">返回首頁</div>
+          <div class="go-share">分享</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動提示 未完成驗證 -->
+  <div class="modal fade popup" id="pop-email-friends" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動提示</h3>
+          <h2 style="position: relative; z-index: 1; text-align: left;">請先完成下列要求後，再返回遊戲首頁即可進行抽獎</h2>
+          <ul class="board" style="margin-top: 5%; margin-bottom: 5%; position: relative; z-index: 1;">
+            <li class="auth auth-email-text">
+              <p><span class="index">•</span>同意取得 E-mail 帳號</p>
+            </li>
+            <li class="auth auth-friend-text">
+              <p><span class="index">•</span>加入好友「臺灣農產嘉年華」LINE@</p>
+            </li>
+          </ul>
+          <img style="position: absolute; top: 60%; transform: translateY(-50%); right: 0; width: 30%; z-index: 0;"
+            src="./common/img/map.png" alt="">
+        </div>
+        <div class="pop-bottons auth auth-email">
+          <div class="go-login">同意參加</div>
+        </div>
+        <div class="pop-bottons pop-bottons-two auth auth-friend">
+          <div class="go-login">返回首頁</div><a href="https://line.me/R/ti/p/@055kfynp">
+            <div>加入好友</div>
+          </a>
+        </div>
+        <div class="pop-bottons pop-bottons-two auth auth-both">
+          <div class="go-login">同意參加</div><a href="https://line.me/R/ti/p/@055kfynp">
+            <div>加入好友</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動結束 -->
+  <div class="modal fade popup" id="pop-campaign-end" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動結束</h3>
+          <h2>活動已圓滿結束，期待下次相會。</h2>
+          <img style="margin: 6% auto; width: 30%;" src="./common/img/celebrate.png" alt="">
+          <h2 style="margin-bottom: 1rem;">感謝參加，歡迎分享。</h2>
+          <div class="wrap-line-offical-btn">
+            <div><a target="_blank" href="https://line.me/R/ti/p/@055kfynp"><img src="./common/img/line.png" alt=""></a>
+            </div>
+            <div class="offical-line"><a target="_blank" href="https://farmersbuy.cas.org.tw/"><span>活動官網</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動尚未開始 -->
+  <div class="modal fade popup" id="pop-jump" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動提示</h3>
+          <h2>於LINE中可能無法執行活動，<br>請使用瀏覽器開啟活動網頁</h2>
+          <div class="wrap-line-offical-btn">
+            <div><a target="_blank" href="https://www.facebook.com/farmersbuy?openExternalBrowser=1"><img
+                  style="width: 48px;" src="./common/img/facebook.png" alt=""></a></div>
+            <div class="offical-line"><a target="_blank"
+                href="https://farmersbuy.cas.org.tw/taiwan-pineapple?openExternalBrowser=1"><span>參加活動</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動尚未開始 -->
+  <div class="modal fade popup" id="pop-campaign-not-yet" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">活動尚未開始</h3>
+          <h2>活動尚未開始。</h2>
+          <div class="wrap-line-offical-btn">
+            <div><a target="_blank" href="https://line.me/R/ti/p/@055kfynp"><img src="./common/img/line.png" alt=""></a>
+            </div>
+            <div class="offical-line"><a target="_blank" href="https://farmersbuy.cas.org.tw/"><span>活動官網</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 系統維護中 -->
+  <div class="modal fade popup" id="pop-maintain" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3 class="popup-title">系統維護</h3>
+          <h2>系統維護中，請稍後再來。</h2>
+          <img style="margin: 6% auto; width: 30%;" src="./common/img/tool.png" alt="">
+          <h2 style="margin-bottom: 1rem;">感謝參加，歡迎分享。</h2>
+          <div class="wrap-line-offical-btn">
+            <div><a target="_blank" href="https://line.me/R/ti/p/@055kfynp"><img src="./common/img/line.png" alt=""></a>
+            </div>
+            <div class="offical-line"><a target="_blank" href="https://farmersbuy.cas.org.tw/"><span>活動官網</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./common/lib/jquery-3.6.0.min.js"></script>
+  <script src="./common/lib/bootstrap.min.js"></script>
+  <script src="./common/js/index.js"></script>
+  <script src="./common/lib/axios.min.js"></script>
+  <script>
+        // $('#pop-campaign-not-yet').modal('show');
+  </script>
+
+  <div class="wrap-loading">
+    <div class="loading">
+      <div class="lds-hourglass"></div>
+    </div>
+  </div>
+
+  <style>
+    .wrap-loading {
+      position: fixed;
+      background-color: #0000007d;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
+  </style>
+
+
+  <!-- <span style="position: absolute; bottom: 20px; right: 20px; font-size: 1.4rem; border: 1px solid #000; padding: 0 0.6rem; font-weight: 600;">廣告</span> -->
+</body>
+
+</html>

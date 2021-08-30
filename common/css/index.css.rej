@@ -1,0 +1,9 @@
+diff a/common/css/index.css b/common/css/index.css	(rejected hunks)
+@@ -345,7 +345,6 @@
+     width: 92%;
+     background: url('../../common/img/table.png') top center;
+     background-size: cover;
+-    color: #40210F;
+     color: #FBF4E6;
+     font-size: 1.4rem;
+     margin: -48% auto 0;
