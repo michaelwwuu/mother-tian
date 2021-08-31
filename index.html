@@ -56,21 +56,13 @@
 
       <!-- main logo -->
       <h1><img class="header-visual" src="./common/img/visual.png" alt="臺灣農產嘉年華"></h1>
-      <h2 class="subtitle">
-        <img class="farmer-left" src="./common/img/farmer1.png" alt="">
-        <img class="farmer-right" src="./common/img/farmer2.png" alt="">
-      </h2>
-      <div style="width: 100%; margin-top: 3%;">
-        <img style="width: 80%; max-width: 666px;" src="./common/img/sub-title-bg.png" alt="中秋慶團圓 抽獎活動開跑">
-      </div>
+
       <!-- <h2 class="subtitle">
                 好運在我家 抽獎活動開跑
                 <img class="farmer-left" src="./common/img/farmer1.png" alt="">
                 <img class="farmer-right" src="./common/img/farmer2.png" alt="">
             </h2> -->
 
-      <!-- Flag -->
-      <img class="flag" src="./common/img/flag.png" alt="">
 
       <!-- 轉盤區塊 -->
       <div class="wrap-wheel">
@@ -107,19 +99,23 @@
         <img style="display: none;" src="./common/img/14.png">
         <img style="display: none;" src="./common/img/15.png">
         <img style="display: none;" src="./common/img/16.png">
+        <img style="display: none;" src="./common/img/12.png">
+        <img style="display: none;" src="./common/img/13.png">
+        <img style="display: none;" src="./common/img/14.png">
+        <img style="display: none;" src="./common/img/15.png">
       </div>
-      <p class="table-count table-count-no-login" style=" text-decoration: underline;">點此參加活動</p>
+      <p class="table-count table-count-no-login" style=" text-decoration: underline;"><span>點此參加活動</span></p>
       <p class="table-count table-count-login" style="display: none;">您的抽獎機會還有 <span class="count"></span> 次</p>
 
       <!-- 分享區塊 -->
       <!-- <div class="wrap-share go-share">
-                <button>
-                    <img class="line-logo" src="./common/img/line.png" alt="">
-                    <span>活動分享</span>
-                    <img class="arrow" src="./common/img/arrow.png" alt="">
-                </button>
-                <h3>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</h3>
-            </div> -->
+        <button>
+          <img class="line-logo" src="./common/img/line.png" alt="">
+          <span>活動分享</span>
+          <img class="arrow" src="./common/img/arrow.png" alt="">
+        </button>
+        <h3>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</h3>
+      </div> -->
 
       <!-- 說明區塊 -->
       <div class="wrap-desc">
@@ -127,36 +123,26 @@
         <div class="board">
           <ul>
             <li>
-              <p><span class="index">1.</span>於活動期間遊玩中秋慶團圓轉盤，即有機會獲得各項大獎。</p>
+              <p><span class="index">1.</span>活動期間<span class="startTime"></span>至<span class="endTime"></span>。</p>
             </li>
             <li>
-              <p><span class="index">2.</span>請先加入好友「臺灣農產嘉年華」LINE@，並登入LINE帳號，即可進行轉盤抽獎。</p>
+              <p><span class="index">2.</span>請先加入好友「田媽媽」粉絲團成為粉絲，即可進行「今晚我想來點田媽媽」轉盤遊戲。</p>
             </li>
             <li>
-              <p><span class="index">3.</span>分享給好友且至少1位好友參加活動，即可額外獲得1次抽獎機會(每日限1次)。</p>
+              <p><span class="index">3.</span>活動期間每人每日可玩一次。</p>
             </li>
           </ul>
+          <div class="campaign-desc">
+            <p>點我看更多</p>
+          </div>
         </div>
       </div>
 
-      <!-- 主辦單位 -->
-      <!-- <div class="wrap-advisor">
-        <div class="unit">
-          <h4 class="advisor-text">指導單位</h4>
-          <img id="advisor" src="./common/img/logo_coa.png" alt="">
-        </div>
-      </div>
-      <div class="wrap-organizer">
-        <div class="unit">
-          <h4 class="organizer-text">主辦單位</h4>
-          <img id="organizer" src="./common/img/logo_cas.png" alt="">
-        </div>
-      </div> -->
+      
       <!-- Footer -->
-      <!-- <div id="footer">
-        <img id="fruit" src="./common/img/fruit.png" alt="">
+      <div id="footer">
         <img id="ground" src="./common/img/footer-bg.png" alt="">
-      </div> -->
+      </div>
     </div>
   </div>
 
@@ -233,6 +219,7 @@
       </div>
     </div>
   </div>
+
   <!-- Popup 抽獎結果 沒中 -->
   <div class="modal fade popup" id="pop-tips" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -374,6 +361,7 @@
       </div>
     </div>
   </div>
+
   <!-- 填寫完成 -->
   <div class="modal fade popup" id="pop-finish" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">

@@ -20,9 +20,9 @@ window.onload = function () {
   var drawTimesDone = 0;
   var clickedDarwTimesDone = getCookie('clickedDarwTimesDone') ? getCookie('clickedDarwTimesDone') : '0';
   var actId;
-
   var product = 1;
 
+  document.cookie = getCookie('UUID') ? '': "UUID=" + UUID() ;
   var loadingCount = 0;
   function checkLoading() {
     if (loadingCount > 0) {
@@ -32,41 +32,17 @@ window.onload = function () {
     }
   }
 
+  //隨機獲取UUID
+  function UUID() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,function(c){
+      var r = (Math.random()*16)|0,
+      v = c == "x" ? r:(r & 0x3) | 0x8;
+      return v.toString(16)
+    })
+  }
+
   /* 有 code 代表由 Line 回調，再與後端做交換 */
   function getLoginInfo() {
-    //     FB.getLoginStatus(function(response) {
-    //         if ( response.status === 'connected' && response.authResponse ) {
-    //             loadingCount++; checkLoading();
-    //             axios.post(apiDomain + '/h5free/member/facebookLogin', {
-    //                 actId: actId,
-    //                 code: response.authResponse.accessToken,
-    //                 inviteMember: parseInt( getUrlParameter('inviteMember') ? getUrlParameter('inviteMember') : 0 ),
-    //                 redirectUri: redirectUri + ( getUrlParameter('inviteMember') ? getUrlParameter('inviteMember') : 0 )
-    //             }).then(function (response) {
-
-    //                 if ( !product )
-    //                 response = JSON.parse('{"data":{"code":200,"message":"操作成功","data":{"tokenHead":"Bearer ","token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDE1OTA3ODY4OTU2OTI0NiIsImNyZWF0ZWQiOjE2MjMyMjA4ODY2MzAsImV4cCI6MTYyMzgyNTY4Nn0.enbKepVBG8rvtiGOfstKCcvAsZtjSfJcNqpYFnsGKM-3OkFWIVt3fFr723EopL8l6ZOghEAddtMs9XOt3VDG7w"}}}');
-
-    //                 /* 有回傳，並且狀態正確 */
-    //                 if ( response && response.data.code === 200 ) {
-    //                     config = {headers: {Authorization: response.data.data.tokenHead + response.data.data.token}};
-    //                     document.cookie = "auth=" + '{"headers": {"Authorization": "' + response.data.data.tokenHead + response.data.data.token + '"}}';
-    //                     // window.history.pushState({}, document.title, "https://farmersbuy.cas.org.tw/taiwan-pineapple2/");
-    //                     // window.history.pushState({}, document.title, "/");
-    //                     my(); // 重設用戶資訊
-    //                 }
-    //             }).catch(function () {
-    //                 $('#pop-maintain').modal('show');
-    //             })
-    //             .then(function () {
-    //                 loadingCount--; checkLoading();
-    //             });
-    //         } else if ( getCookie('auth') ) {
-    //             config = JSON.parse( getCookie('auth') );
-    //             my(); // 重設用戶資訊
-    //         }
-    //     });
-
     if (getUrlParameter('code')) {
       loadingCount++; checkLoading();
       axios.post(apiDomain + '/h5free/member/lineLogin', {
@@ -231,9 +207,9 @@ window.onload = function () {
         var angle = startAngle + i * arc;
         //ctx.fillStyle = colors[i];
         if (i % 2 === 0) {
-          ctx.fillStyle = '#FAFAF0';
+          ctx.fillStyle = '#D6DC85';
         } else {
-          ctx.fillStyle = '#FFFFFF';
+          ctx.fillStyle = '#A9DBE7';
         }
 
         ctx.beginPath();
@@ -267,24 +243,21 @@ window.onload = function () {
   /* 獲取獎項列表 */
   loadingCount++; checkLoading();
   axios.get(apiDomain + '/h5free/prize/list', {
-  }).then(function (response) {
-    console.log('res',response.data.data)
-
+  }).then((res)=> {
     if (!product)
-      response = JSON.parse('{"data": {"code":200,"message":"操作成功","data":{"prizeList":[{"id":1,"title":"果汁冰沙機","picUrl":"1.png","detail":""},{"id":2,"title":"再接再厲","picUrl":"2.png","detail":""},{"id":3,"title":"鳳梨福袋","picUrl":"3.png","detail":""},{"id":4,"title":"再接再厲","picUrl":"4.png","detail":""},{"id":5,"title":"鳳梨驚喜包","picUrl":"5.png","detail":""},{"id":6,"title":"隨行果汁機","picUrl":"6.png","detail":""}],"startTime":"2021年04月15日","endTime":"2021年04月30日","errorType":0,"actId":3}}}');
-
+      res = JSON.parse('{"data": {"code":200,"message":"操作成功","data":{"prizeList":[{"id":1,"title":"果汁冰沙機","picUrl":"1.png","detail":""},{"id":2,"title":"再接再厲","picUrl":"2.png","detail":""},{"id":3,"title":"鳳梨福袋","picUrl":"3.png","detail":""},{"id":4,"title":"再接再厲","picUrl":"4.png","detail":""},{"id":5,"title":"鳳梨驚喜包","picUrl":"5.png","detail":""},{"id":6,"title":"隨行果汁機","picUrl":"6.png","detail":""}],"startTime":"2021年04月15日","endTime":"2021年04月30日","errorType":0,"actId":3}}}');
     /* 活動編號 */
-    if (response.data && response.data.data.actId) {
-      actId = response.data.data.actId;
+    if (res.data && res.data.data.actId) {
+      actId = res.data.data.actId;
     }
     /* 有回傳時間 */
-    if (response.data && response.data.data.startTime && response.data.data.endTime) {
-      $('.startTime').text(response.data.data.startTime);
-      $('.endTime').text(response.data.data.endTime);
+    if (res.data && res.data.data.startTime && res.data.data.endTime) {
+      $('.startTime').text(res.data.data.startTime);
+      $('.endTime').text(res.data.data.endTime);
     }
 
-    if (response.data) {
-      prizes = response.data.data.prizeList;
+    if (res.data) {
+      prizes = res.data.data.prizeList;
       arc = Math.PI / (prizes.length / 2);
 
       /* 獎項列表 */
@@ -311,29 +284,26 @@ window.onload = function () {
       drawRouletteWheel();
     }
 
-    if (response.data && response.data.data.errorType === 0) {
+    if (res.data && res.data.data.errorType === 0) {
       // 取得獎項列表以後再獲取用戶資訊
       getLoginInfo();
-    } else if (response.data && response.data.data.errorType === 1) {
+    } else if (res.data && res.data.data.errorType === 1) {
       /* 維護狀態 */
       $('#pop-maintain').modal('show');
-    } else if (response.data && response.data.data.errorType === 2) {
+    } else if (res.data && res.data.data.errorType === 2) {
       /* 未開始 */
       $('#pop-campaign-not-yet').modal('show');
-    } else if (response.data && response.data.data.errorType === 3) {
+    } else if (res.data && res.data.data.errorType === 3) {
       /* 已結束 */
       $('#pop-campaign-end').modal('show');
     }
+    setTimeout(() => {
+      loadingCount--; checkLoading();
+    }, 1000);
 
-
-  }).catch(function (error) {
+  }).catch((err)=> {
     $('#pop-maintain').modal('show');
   })
-    .then(function () {
-      setTimeout(() => {
-        loadingCount--; checkLoading();
-      }, 1000);
-    });
 
   var eachAngle = 0; // 計算等分的度
   var cycle = 0; // 最少要轉多少，必須以 360 為倍數

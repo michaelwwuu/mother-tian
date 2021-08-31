@@ -10,7 +10,7 @@ html {
 body {
   text-align: center;
   position: relative;
-  background: #03587A url('../img/bgimg-1920.png') no-repeat top center;
+  background: #F8C49B url('../img/bgimg-1920.png') no-repeat top center;
   background-size: 100%;
 }
 
@@ -20,7 +20,8 @@ body {
   }
 
   body {
-    background: #03587A url('../img/bgimg-375.png') no-repeat top center;
+    background: #F8C49B url('../img/bgimg-375.png') no-repeat top center;
+    background-size: 100%;
   }
 }
 
@@ -30,7 +31,8 @@ body {
   }
 
   body {
-    background: #03587A url('../img/bgimg-375.png') no-repeat top center;
+    background: #F8C49B url('../img/bgimg-375.png') no-repeat top center;
+    background-size: 100%;
   }
 }
 
@@ -40,7 +42,8 @@ body {
   }
 
   body {
-    background: #03587A url('../img/bgimg-375.png') no-repeat top center;
+    background: #F8C49B url('../img/bgimg-375.png') no-repeat top center;
+    background-size: 100%;
   }
 }
 
@@ -90,7 +93,8 @@ input:focus {
 }
 
 .mango-slogan {
-  width: 56%;
+  width: 29%;
+  margin: 5% 0;
 }
 
 /* 採買國產鳳梨相挺臺灣農民 */
@@ -144,7 +148,7 @@ input:focus {
 /* 大 logo */
 .header-visual {
   display: inline-block;
-  margin: 2.2% auto 0;
+  margin: 2.2% auto -3rem auto;
   width: 87.1%;
 }
 
@@ -267,40 +271,35 @@ input:focus {
   width: 100%;
 }
 
-.campaign-desc,
-.winner-record {
-  background-color: rgba(0, 31, 62, 0.5);
-  color: #FBF4E6;
-  position: absolute;
-  top: 4%;
-  width: 5.8rem;
-  height: 5.8rem;
-  border-radius: 50%;
-  font-size: 1.3rem;
+.campaign-desc{
+  background-color: #A0896B;
+  color: #FFFFFF;
+  width: 20rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border-radius: 30rem;
   font-weight: 500;
   text-align: center;
   word-break: keep-all;
   z-index: 80;
   cursor: pointer;
+  margin: 2rem auto 0 auto;
 }
 
-.campaign-desc img,
+/* .campaign-desc img,
 .winner-record img {
   margin-top: 12%;
   width: 36%;
-}
+} */
 
-.campaign-desc p,
-.winner-record p {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.campaign-desc p{
+  font-weight: 600;
   font-size: 1.2rem;
 }
 
-.campaign-desc {
+/* .campaign-desc {
   left: 5%;
-}
+} */
 
 .winner-record {
   right: 5%;
@@ -400,13 +399,17 @@ input:focus {
   width: 92%;
   background: url('../../common/img/table.png') top center;
   background-size: cover;
-  color: #03587A;
+  color: #FFFFFF;
   font-size: 1.4rem;
   margin: -48% auto 0;
   padding: 46% 0 6%;
   font-weight: 600;
 }
-
+.table-count span{
+  position:relative;
+  left: 1.4rem;
+  top: 0.35rem;
+}
 .count {
   color: #4CAF52;
 }
@@ -477,10 +480,10 @@ input:focus {
 }
 
 .wrap-desc .board {
-  background: #BA8657;
+  background: #efe8e8;
   list-style-type: none;
   text-align: left;
-  color: #FBF4E6;
+  color: #A0896B;
   border-radius: 20px;
   margin-top: -2%;
   position: relative;
@@ -493,6 +496,7 @@ input:focus {
   list-style-type: none;
   font-size: 1.4rem;
   font-weight: 600;
+  line-height: 2.2rem;
 }
 
 .wrap-desc .board ul li p {
@@ -693,10 +697,12 @@ input:focus {
 }
 
 #footer #ground {
-  width: 130%;
-  margin-left: -15%;
+  width: 116%;
+  margin-left: -25%;
+  position: relative;
+  margin-bottom: -15%;
+  left: 14%;
 }
-
 .go-share {
   cursor: pointer;
 }
